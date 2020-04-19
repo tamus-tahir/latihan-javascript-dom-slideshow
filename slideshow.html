@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title></title>
+	<style type="text/css">
+		* {
+			padding: 0;
+			margin: 0;
+		}
+
+		img {
+			width: 100vw;
+			height: 100vh;
+		}
+	</style>
+</head>
+
+<body>
+	<!-- membuat tag image, src dari gambar akan kita berikan dengan menggunakan dom javascript -->
+	<img name="slide">
+
+	<script type="text/javascript">
+		// membuat variabel i dengan nilai 0
+		var i = 0;
+
+		// membuat variabel waktu 3000 = 3 detik
+		var time = 3000;
+
+		// membuat variabel images yang isinya array kosong, nantinya array ini akan kita isi nilainya
+		var images = [];
+
+		// mengisi data pada array images
+		// [0] ==> index ke 0 (index array dimulay dari 0)
+		images[0] = 'wp-1.jpg';
+		images[1] = 'wp-2.jpg';
+		images[2] = 'wp-3.jpg';
+		images[3] = 'wp-4.jpg';
+		images[4] = 'wp-5.jpg';
+		images[5] = 'wp-6.jpg';
+		images[6] = 'wp-7.jpg';
+		images[7] = 'wp-8.jpg';
+		images[8] = 'wp-9.jpg';
+		images[9] = 'wp-10.jpg';
+
+		// membuat fungsi changeImage
+		function changeImage() {
+			// menambahkan parameter src pada elemen dengan name slide
+			// isi dari src yaitu images dengan index ke i 
+			// i adalah index ke 0 yang sdh kita assignment di awal
+			document.slide.src = images[i];
+
+			// kondisi jika i lebih kecil dari panjang nilai images (yaitu panjang nilai array images = 10) - 1
+			// kurang 1 karna index pada array hanya 0 - 9
+			if (i < images.length - 1) {
+				// i + 1
+				i++;
+			} else {
+				// jika nilai i menjadi 10, nilai i akan dijadikan 0
+				// karna index array images hanya sampai 9
+				i = 0;
+			}
+
+			// mengatur waktu untuk mejalankan fungsi  changeImage dalam hal ini 3 detik
+			// dimana setiap detik gambar akan berganti
+			setTimeout("changeImage()", time);
+		}
+
+		// memangggil fungsi yang telah dibuat
+		changeImage();
+	</script>
+</body>
+
+</html>
